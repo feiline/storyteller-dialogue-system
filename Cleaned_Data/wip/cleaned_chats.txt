@@ -1,3 +1,4 @@
+
 Chat: 1
 ====================
 User:
@@ -14,10 +15,10 @@ User:
 	that's not cool. That's greedy.
 Storyteller:
 	Thinking the goose was made of gold inside, they decided to kill it to get all the gold at once
-Storyteller:
-	Once they cut it open they realized it was just like any other goose
 User:
 	Oh my gosh. How horrifying!!!  They are wicked people.
+Storyteller:
+	Once they cut it open they realized it was just like any other goose
 User:
 	Oh crap. Goes to show you greed is the root of all evil.
 Storyteller:
@@ -112,18 +113,8 @@ User:
 ------------------------------------------------------------
 
 
+
 Chat: 3
-====================
-Storyteller:
-	Hey!
-User:
-	Hi
-Storyteller:
-	so what's been going on with you?
-------------------------------------------------------------
-
-
-Chat: 4
 ====================
 Storyteller:
 	Today I went scuba diving on the Great Barrier Ref...AWESOME doesn't even begin to describe it.
@@ -166,6 +157,8 @@ User:
 Storyteller:
 	Thus, they neither got rich all at once, as they had hoped, nor enjoyed any longer the daily addition to their wealth.
 Storyteller:
+
+Storyteller:
 	That is my last story...
 User:
 	ok
@@ -174,7 +167,7 @@ User:
 ------------------------------------------------------------
 
 
-Chat: 5
+Chat: 4
 ====================
 User:
 	Hey there!
@@ -187,7 +180,8 @@ User:
 ------------------------------------------------------------
 
 
-Chat: 6
+
+Chat: 5
 ====================
 User:
 	hey there
@@ -254,7 +248,7 @@ User:
 ------------------------------------------------------------
 
 
-Chat: 7
+Chat: 6
 ====================
 User:
 	i'm ready to listen
@@ -317,7 +311,7 @@ User:
 ------------------------------------------------------------
 
 
-Chat: 8
+Chat: 7
 ====================
 User:
 	Hello
@@ -360,7 +354,8 @@ Storyteller:
 ------------------------------------------------------------
 
 
-Chat: 9
+
+Chat: 8
 ====================
 User:
 	Tell me your story :)
@@ -381,7 +376,7 @@ User:
 Storyteller:
 	I don't think it depressing. Inspirational. There is another story, do you want to hear it?
 User:
-	Yes, the end experiment button won't appear until 15 minutes have gone by, so I'm up for another story.
+	Yes, I'm up for another story.
 Storyteller:
 	OK. A man and his wife owned a goose that lay golden eggs. They became greedy and thinking that the goose was full of eggs decided to kill it and get all the eggs at once. But when they killed it, it turned out to be just a normal goose. So they did not get all the eggsa and didn't any in the future. It's an old story with a moral again
 User:
@@ -396,9 +391,11 @@ User:
 	Probably. All these stories originally would be told orally, so they would change a little bit from teller to teller, like Chinese Whispers - we knew the thorn story, the person who wrote this task knew it as a net
 Storyteller:
 	Yeah, although I think the net is more modern and perhaps makes the story better
+
 ------------------------------------------------------------
 
-Chat: 10
+
+Chat: 9
 ====================
 User:
 	hi
@@ -411,6 +408,17 @@ User:
 Storyteller:
 	There was a man and a woman who were fortunate enough to possess a goose which laid golden eggs. But then they felt they were not getting rich quickly. Then they decided to kill the goose and get the gold inside it. They manager to kill the poor goose. Unfortunately there was no gold inside the dead
 User:
+	que interesante historia
+
+Storyteller:
+	Sorry lcant undersy the other language
+Storyteller:
+	I am not good at spanish
+User:
+	No problem, as you feel more comfortable.
+Storyteller:
+	Thank you
+User:
 	please continue your story.
 Storyteller:
 	So as l was saying they killed an innocent goose because they wanted to get rich quickly
@@ -421,7 +429,7 @@ Storyteller:
 ------------------------------------------------------------
 
 
-Chat: 11
+Chat: 10
 ====================
 User:
 	hello?
@@ -470,7 +478,7 @@ User:
 ------------------------------------------------------------
 
 
-Chat: 12
+Chat: 11
 ====================
 User:
 	hola
@@ -507,7 +515,7 @@ Storyteller:
 ------------------------------------------------------------
 
 
-Chat: 13
+Chat: 12
 ====================
 Storyteller:
 	Anne and I went to the Tsujiki Fish market on Monday morning for the early morning auction.  This market is the largest fish market in Asia possibly in the world.
@@ -569,6 +577,13 @@ User:
 	where are u located now
 Storyteller:
 	home
+------------------------------------------------------------
+
+
+Chat: 13
+====================
+User:
+	Wow, what a story
 ------------------------------------------------------------
 
 
@@ -731,8 +746,10 @@ User:
 ------------------------------------------------------------
 
 
+
 Chat: 17
 ====================
+
 Storyteller:
 	there was once a tiger that became aggravated by a mouse that kept bugging him and scurrying in his face
 User:
@@ -872,7 +889,9 @@ Storyteller:
 User:
 	there are mouses in the jungle?
 Storyteller:
-	There is at least one mouse in this particular jungle. Angrily, the lion grabbed the mouse with its paw and was just about to kill it when the mouse begged for its life and promised to repay the lion if he let him go.
+	There is at least one mouse in this particular jungle. 
+Storyteller:
+	Angrily, the lion grabbed the mouse with its paw and was just about to kill it when the mouse begged for its life and promised to repay the lion if he let him go.
 Storyteller:
 	The lion laughed at the mouse, unsure that it could ever do anything to help him, but decided to let the mouse go anyway.
 User:

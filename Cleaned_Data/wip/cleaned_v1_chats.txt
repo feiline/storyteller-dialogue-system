@@ -5,10 +5,10 @@ User:
 	Hi
 Storyteller:
 	On Monday morning me and Anne went down to the worlds biggest fish market, Tsujiki Fish market for the early morning auction. We got there at 6:30 am.m and we were too late because there were no signs posted in Romanji.
-Storyteller:
-	We weren't the only ones who were there either. Some people got there before we did and none of them made it to the auction either.
 User:
 	Im sorry you missed the fresh fish for the day. Perhaps you can learn some Romanji to Engoish words.
+Storyteller:
+	We weren't the only ones who were there either. Some people got there before we did and none of them made it to the auction either.
 User:
 	They must not have had much to sell
 User:
@@ -30,6 +30,7 @@ Storyteller:
 User:
 	You should post some of them so we can see what the market looks like today.
 ------------------------------------------------------------
+
 
 
 Chat: 2
@@ -91,40 +92,6 @@ User:
 
 Chat: 3
 ====================
-Storyteller:
-	a friend of mine went to the flea market and bought a goose.
-Storyteller:
-	it was golden in hue and would lay eggs made of gold. my friend, selfish and greedy had the idea that the goose was actualy made of gold, or had gold inside. So, one day he took an ax and killed the goose thinking, "I will be rich."
-Storyteller:
-	Anyway, the goose was made of soft tissue and organs, so it died and my friend no longer had access to golden eggs,
-Storyteller:
-	click next, please.
-Storyteller:
-	once, there was a lion sleeping in his den. It was a quiet, languid day.
-Storyteller:
-	a mouse was scurrying across the dirt floor and sped across his face, startling the lion to awake.
-Storyteller:
-	Immediately, the lion swatted his paw out of anger, catching the mouse.
-Storyteller:
-	The mouse was scared and begged for his life. "One day I will save you, as insignificant as you think i am!"
-Storyteller:
-	Amused at the mouse's bravado, his bravery, the Lion let him and go, thinking that he would never see the rodent again.
-Storyteller:
-	One day, the lion was running across a field and was snatched by a poachers net. Scared, and resigned to his fate, the lion felt a mouse running back and forth across his back, gnawing at the ner.
-Storyteller:
-	When the net became free, the mouse smiled, "you laughed at me, but even the smallest of creatures can help a lion."
-Storyteller:
-	Click next please.
-Storyteller:
-	Our dog, benjamin, will only drink from a stainless steel bowl, so we keep one on our deck. It's become a popular spot for birds, squirrels and other woodland creatures
-Storyteller:
-	One day, a rather maniacal squirrel danced, spun and ran to the bowl. He was so startled that he stumbled, fell and had to clutch his little paw on the bowl to keep him from falling off the deck. I wish I had a camera to capture the look on is face.
-Storyteller:
-	click next please.
-------------------------------------------------------------
-
-Chat: 4
-====================
 User:
 	Tell Me
 Storyteller:
@@ -140,7 +107,8 @@ User:
 ------------------------------------------------------------
 
 
-Chat: 5
+
+Chat: 4
 ====================
 Storyteller:
 	So I was scuba diving by the Great Barrier riff and was bit terified at the beggining.
@@ -202,10 +170,10 @@ Storyteller:
 	Can imagine they surprise when they was left without gold and bird?
 Storyteller:
 	Afcourse it was just funny story for you to cheer up.
-Storyteller:
-	One one more?
 User:
 	Yea bet they was surprised
+Storyteller:
+	One one more?
 User:
 	Yea go on
 Storyteller:
@@ -261,11 +229,17 @@ Storyteller:
 Storyteller:
 	I agree with you.
 Storyteller:
-	Thank you for listening and nice chat. I'm LostForever KosHMaras on socWeB. See you next time.
+	So my firen we had three stories and whats next?
+Storyteller:
+	I really like chatting, but wish to finish taskto.
+User:
+	Yes I think there should be a survey about it?
+Storyteller:
+	Thank you for listening and nice chat. See you next time.
 ------------------------------------------------------------
 
 
-Chat: 6
+Chat: 5
 ====================
 Storyteller:
 	Hi
@@ -275,30 +249,30 @@ Storyteller:
 	I have a story, a man and a woman had a ganzo that placed a golden egg every day, they began to see that it was not enough and thought that the bird was gold, they realized that it was not like that and they lost the chance to be rich and they were poor because of their ambition
 User:
 	What is a ganzo?
+Storyteller:
+	a bird
 User:
 	How did they lose their chance to be rich just because the bird was gold?
 User:
 	Did they try to sell the bird?
+Storyteller:
+	they did not want to sell it, they killed it to see if it was from...
 User:
 	How many days did they get a golden egg?
+Storyteller:
+	almost day
 User:
 	Where did the bird place the golden eggs?
 User:
 	Why did they need more than what the golden eggs were worth?
 Storyteller:
-	a bird
-Storyteller:
-	almost day
-Storyteller:
 	they want more and more money
 Storyteller:
 	I do not know why the bird put gold eggs, I think it was spec...
-Storyteller:
-	they did not want to sell it, they killed it to see if it was from...
 ------------------------------------------------------------
 
 
-Chat: 7
+Chat: 6
 ====================
 User:
 	Hello
@@ -348,33 +322,11 @@ Storyteller:
 	the end
 User:
 	you are a good storyteller have you any others?
-Storyteller:
-	i am finished the second story but i can't click next
-User:
-	why not
-Storyteller:
-	i have no idea
-User:
-	What happened to the pictures the people took at the fish auction?
-Storyteller:
-	i don't know
----------------------------------------
-
-
-Chat: 8
-====================
-User:
-	hello
-Storyteller:
-	I have just read a story about someone and a friend called Anne who went to the fish market to buy some fish but were late.
-Storyteller:
-	The rest of the story is about them going around the market finding out what is on each stall and is described in detail, particularly the fish and good descriptions.
-Storyteller:
-	they then get some food, go on the subway to visit a buddhist temple.
 ------------------------------------------------------------
 
 
-Chat: 9
+
+Chat: 7
 ====================
 Storyteller:
 	The story is about a person who keeps a bowl of water on their back deck for their dog to drink from when he's playing outside
@@ -420,7 +372,8 @@ User:
 	ah okay
 ------------------------------------------------------------
 
-Chat: 10
+
+Chat: 8
 ====================
 Storyteller:
 	hi
@@ -435,7 +388,7 @@ Storyteller:
 ------------------------------------------------------------
 
 
-Chat: 11
+Chat: 9
 ====================
 User:
 	Hello?
@@ -470,7 +423,7 @@ Storyteller:
 ------------------------------------------------------------
 
 
-Chat: 12
+Chat: 10
 ====================
 Storyteller:
 	hi
@@ -483,30 +436,7 @@ User:
 ------------------------------------------------------------
 
 
-Chat: 13
-====================
-User:
-	SOunds very interesting.  Why didn't you try the noodles?
-Storyteller:
-	How is the buddhist temple next to the Hibaya line entrance different from other temples?
-Storyteller:
-	Let's start again.
-Storyteller:
-	Anne and I went to Tsujik Fish market early Monday morning and we tried to catch the early morning auction.
-Storyteller:
-	However, we missed it even though we got there by 6:30am.  We weren't the only ones missed it.  Too bad, Tsujiki is probably the largest fish market in the world.  At least we could see how fishes being transported away.  A huge tuna with tail cut off and stuffed in it's mouth to save space.  It was a really cramped space.
-Storyteller:
-	There were also fresh sushi and noodles.  I was tempted to have some sushi for breakfast, but it might not be a great idea for my tummy.  So, I opted for a cappucino and pastry instead.
-Storyteller:
-	On the way back to the subway station, we went to a beautiful Japanese templates in that the 'altar' area was very elaborately decorated.  It was nice to take a breather before jumping on the subway home.
-Storyteller:
-	There were a greedy couple who owned a Goose which laid a Golden egg every day.  Lucky though they were, they soon felt that they didn't get rich fast enough.  They imagined the bird must be made of gold inside and they decided to kill it to secure the whole store of gold inside the bird.  However, they soon realized the goose was just like any others goose.  Hence, they neither got rick all at once as they had hoped, nor enjoyed any longer the daily addition to their wealth.
-Storyteller:
-	By the way, this is the second story.
-------------------------------------------------------------
-
-
-Chat: 14
+Chat: 11
 ====================
 Storyteller:
 	hi
@@ -555,7 +485,17 @@ User:
 ------------------------------------------------------------
 
 
-Chat: 15
+
+Chat: 12
+====================
+User:
+	hi
+Storyteller:
+	my history is short, my life is sad but im warrior of my future
+------------------------------------------------------------
+
+
+Chat: 13
 ====================
 Storyteller:
 	A man and wife had a golose that laid golden eggs, it would lay one every day but they thought they could get richer by cutting open the goose to get the gold inside. However there was no gold inside the goose
@@ -570,7 +510,7 @@ Storyteller:
 ------------------------------------------------------------
 
 
-Chat: 16
+Chat: 14
 ====================
 Storyteller:
 	My friend Anne and I went to see the early morning auction at the Tsujiki Fish Market one Monday morning.
@@ -645,20 +585,10 @@ Storyteller:
 ------------------------------------------------------------
 
 
-Chat: 17
+
+Chat: 15
 ====================
-User:
-	Hi are you there
-User:
-	I am not seeing any of your messages
-User:
-	Where did you go?
-Storyteller:
-	I am here and wrote you a long message
-Storyteller:
-	I wrote a story about the Japanese fish market experience.
-User:
-	I wonder why  I cannot see it
+
 Storyteller:
 	I just finished reading about the scuba diving at the Great Barrier reef and was going to write to you about it
 User:
@@ -705,7 +635,8 @@ User:
 	Have a most wonderful rest of your vacation.
 ------------------------------------------------------------
 
-Chat: 18
+
+Chat: 16
 ====================
 Storyteller:
 	A lion caught a mouse and was about to kill it when the mouse pleaded with the lion to let it go, the lion laughed but decided to let the mouse go free. Shortly after the lion was captured in a net, the mouse came across the lion and helped him free.
@@ -724,7 +655,7 @@ Storyteller:
 ------------------------------------------------------------
 
 
-Chat: 19
+Chat: 17
 ====================
 User:
 	Hello! Tell me your story
