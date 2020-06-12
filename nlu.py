@@ -9,7 +9,7 @@ def get_intent(utterance):
 
     return interpretation
 
-if __name__ == "__main__":
-    utterance = "Hello, world!"
-    intent = get_intent(utterance)
-    print(intent)
+# if __name__ == "__main__":
+#     utterance = "Hello, world!"
+#     intent = get_intent(utterance)
+#     print(intent)
