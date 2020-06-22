@@ -1,6 +1,6 @@
+import random
 import networkx as nx
 import matplotlib.pyplot as plt
-
 from networkx.drawing.nx_agraph import graphviz_layout
 
 
@@ -72,25 +72,88 @@ def get_story_graph():
     return story_graph
 
 
+def depth_first_search(visited, graph, node_name, node_to_visit):
+    """
+    Method to retrieve the next sentence to say - implemented as a depth first search
+    :param visited: list of nodes whoch story has been already told in the conversations
+    :param graph: story graph
+    :param node_name: node in which is stored the first story increment
+    :return: next increment based on what has been already told to the user
+    """
+    nodes = ['sentence1', 'sentence2', 'sentence3', 'sentence4', 'sentence5', 'sentence6', 'sentence7', 'sentence8',
+             'sentence9', 'sentence10', 'sentence11', 'sentence12']
 
-# just for debugging purposes
+    # if the node contains the last increment of the story
+    if node_name == "sentence12":
+        print("The story is finished")
+    else:
+        # if the node contains an incrmeent that is not
+        if node_name not in visited:
+            print(graph.nodes[node_name]["node_object"].sentence)
+            visited.append(node_name)
+
+        elif len(graph.adj[node_name]) > 0:
+            next_nodes = graph.adj[node_name]
+            if len(next_nodes) > 1:
+                for node in nodes:
+                    if node in next_nodes:
+                        node_to_visit.append(node)
+                next_node = random.choice(node_to_visit)
+                node_to_visit.remove(next_node)
+                depth_first_search(visited, graph, next_node, node_to_visit)
+            else:
+                for node in nodes:
+                    if node in next_nodes:
+                        next_node = node
+                depth_first_search(visited, graph, next_node, node_to_visit)
+
+        else:
+            next_node = random.choice(node_to_visit)
+            node_to_visit.remove(next_node)
+            depth_first_search(visited, graph, next_node, node_to_visit)
+
+
+# --------------------------- DEBUGGING PURPOSES ONLY ------------------------ #
+
 # def main():
-#     sentence1 = StorySentenceNode("sentence1", "first_sentence", [])
-#     sentence2 = StorySentenceNode("sentence2", "second_sentence", [sentence1])
-#     sentence3 = StorySentenceNode("sentence3", "third_sentence", [sentence2])
-#     sentence4 = StorySentenceNode("sentence4", "fourth_sentence", [sentence2, sentence3])
-#     sentence_graph = [sentence1, sentence2, sentence3, sentence4]
-#
-#     graph = create_graph(sentence_graph)
-#
-#     print(graph.nodes["sentence1"])
-#     print(graph.nodes["sentence3"]["node_object"].sentence)
+#     story_graph = get_story_graph()
+#     visited_nodes = []
+#     nodes_to_visit = []
+#     first_node = "sentence1"
+#     for i in range(13):
+#         answer = depth_first_search(visited_nodes, story_graph, first_node, nodes_to_visit)
+
+
+
+    # sentence1 = StorySentenceNode("sentence1", "first_sentence", [])
+    # sentence2 = StorySentenceNode("sentence2", "second_sentence", [sentence1])
+    # sentence3 = StorySentenceNode("sentence3", "third_sentence", [sentence2])
+    # sentence4 = StorySentenceNode("sentence4", "fourth_sentence", [sentence2, sentence3])
+    # sentence_graph = [sentence1, sentence2, sentence3, sentence4]
+    #
+    # graph = create_graph(sentence_graph)
+    #
+    # print(graph.nodes["sentence3"]["node_object"].sentence)
+    # print("Successor of node 2 is: ")
+    # next_nodes = graph.adj['sentence2']
+    # print(next_nodes)
+    #
+    # if len(next_nodes) > 1:
+    #     print("more than two nodes available")
+    #     if 'sentence3' in next_nodes:
+    #         name_node = 'sentence3'
+    #
+    #
+    # print(name_node)
+    # print(graph.nodes[name_node]["node_object"].sentence)
+
+    # print(graph.successors(sentence1.name))
 #
 #     pos = graphviz_layout(graph, prog='dot')
 #     labels = {v.name: v.name for v in sentence_graph}
 #     nx.draw(graph, with_labels=True, pos=pos, labels=labels)
 #     plt.show()
 
-
+#
 # if __name__ == "__main__":
 #     main()
