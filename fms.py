@@ -14,11 +14,11 @@ class ConversationFMS(object):
         # ---- Transition from introduction --- #
         self.machine.add_transition('acceptance', 'introduction', 'storytelling')
         self.machine.add_transition('question', 'introduction', 'answering')
+        self.machine.add_transition('no_change', 'introduction', 'introduction')
 
         # ---- Transition from storytelling --- #
         self.machine.add_transition('story_ends', 'storytelling', 'closing')
         self.machine.add_transition('question', 'storytelling', 'bidaf_answering')
-        self.machine.add_transition('non_question', 'storytelling', 'closing', conditions='story_ended')
         self.machine.add_transition('non_question', 'storytelling', 'storytelling')
 
         # ---- Transition from answering --- #
@@ -28,7 +28,7 @@ class ConversationFMS(object):
 
         # ---- Transition from ans_bidaf --- #
         self.machine.add_transition('acceptance', 'ans_bidaf', 'storytelling')
-        self.machine.add_transition('acceptance', 'ans_bidaf', 'closing', conditions='story_ended')
+        self.machine.add_transition('acceptance', 'ans_bidaf', 'closing')
         self.machine.add_transition('question', 'ans_bidaf', 'ans_bidaf')
 
         # ---- Transition from closing --- #
@@ -40,11 +40,11 @@ class ConversationFMS(object):
         self.machine.add_transition('acceptance', 'answering_f', 'link_to_survey')
 
 
-if __name__ == "__main__":
-    conv1 = ConversationFMS('1')
-    print("This is the initial state: ", conv1.state)
-    conv1.acceptance()
-    print("This is the state after 'acceptance' from the user: ", conv1.state)
-    conv1.story_ends()
-    print("This is the state after 'story_ends': ", conv1.state)
-
+# if __name__ == "__main__":
+#     conv1 = ConversationFMS('1')
+#     print("This is the initial state: ", conv1.state)
+#     conv1.acceptance()
+#     print("This is the state after 'acceptance' from the user: ", conv1.state)
+#     conv1.story_ends()
+#     print("This is the state after 'story_ends': ", conv1.state)
+#
