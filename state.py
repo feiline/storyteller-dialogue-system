@@ -5,6 +5,16 @@ class State:
         self._intent = intent
         self._previous_intent = previous_intent
         self.is_story_ended = False
+        self.nodes_to_visit = []
+        self.current_node = "sentence1"
+
+    @property
+    def story_graph(self):
+        return self._story_graph
+
+    @property
+    def story_told(self):
+        return self._story_told
 
     @property
     def intent(self):
@@ -16,7 +26,7 @@ class State:
 
     @property
     def previous_intent(self):
-        return self._intent
+        return self._previous_intent
 
     @intent.setter
     def intent(self, new_intent):
@@ -46,13 +56,13 @@ class State:
                 if self.intent == "ynq" or self.intent == "whq":
                     fsm.question()  # new state: answering
                 elif self.intent == "affirm" or self.intent == "request_increment" or self.intent == "exclaim_pos"\
-                        or self.intent == "ask_for_story" or self.intent == "thanks":
+                        or self.intent == "ask_for_story" or self.intent == "thanks" or self.intent == "comment":
                     fsm.acceptance()  # new state: storytelling
                 else:
                     fsm.no_change()  # new state: introduction
 
         elif state == "storytelling":
-            if self.is_story_ended:
+            if self.current_node == "sentence12":
                 fsm.story_ends()  # new state: closing
             elif self.intent == "ynq" or self.intent == "whq":
                 fsm.question()  # new state: bidaf_answering
