@@ -1,7 +1,8 @@
 class State:
-    def __init__(self, story_graph, story_told, intent, previous_intent=None):
+    def __init__(self, story_graph, story_told, utterance, intent, previous_intent=None):
         self._story_graph = story_graph
         self._story_told = [story_told]
+        self._utterance = utterance
         self._intent = intent
         self._previous_intent = previous_intent
         self.is_story_ended = False
@@ -21,8 +22,8 @@ class State:
         return self._intent
 
     @property
-    def story_told(self):
-        return self._story_told
+    def utterance(self):
+        return self._utterance
 
     @property
     def previous_intent(self):
