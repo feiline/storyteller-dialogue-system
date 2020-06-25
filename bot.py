@@ -1,17 +1,22 @@
-import logging
-import random
 from argparse import ArgumentParser
+from datetime import datetime
+import logging
 import os
+
 from flask import Flask, request
 from flask_restful import Api
-from utils import log
-from utils.abstract_classes import Bot
-from utils.dict_query import DictQuery
-from datetime import datetime
-import random
-from nlu import get_intent, set_new_state
-from fms import ConversationFMS
+
+from regexes_intent_classifier import regex_intent_classifier
+from utils.utils import log
+from utils.utils.abstract_classes import Bot
+from utils.utils.dict_query import DictQuery
+
 from dm import dialogue_manager
+from fms import ConversationFMS
+from nlu import get_intent
+from state import State
+from story import get_story_graph
+
 
 app = Flask(__name__)
 
@@ -20,13 +25,17 @@ BOT_NAME = "storyteller"
 VERSION = log.get_short_git_version()
 BRANCH = log.get_git_branch()
 
+# logging.basicConfig(filename="loggerConversation")
 logger = logging.getLogger(__name__)
 
 parser = ArgumentParser()
 parser.add_argument('-p', "--port", type=int, default=5130)
 parser.add_argument('-l', '--logfile', type=str, default='logs/' + BOT_NAME + '.log')
 parser.add_argument('-cv', '--console-verbosity', default='info', help='Console logging verbosity')
-parser.add_argument('-fv', '--file-verbosity', default='debug', help='File logging verbosity')
+parser.add_argument('-fv', '--file-verbosity', default='info', help='File logging verbosity')
+
+state_object = None
+story_fsm = None
 
 
 class StorytellerBot(Bot):
@@ -36,51 +45,51 @@ class StorytellerBot(Bot):
         # We will use kwargs to specify already initialised objects that are required to the bot
         super(StorytellerBot, self).__init__(bot_name=BOT_NAME)
 
-        # -------- List of possible answer, connection to NLG, called as parameters -------- #
-        # self.storytelling = [
-        #     "Hello! Ready for a story?",
-        #     "Hello! Would you like to hear a story?",
-        # ]
-
-
     def get(self):
         pass
 
     def post(self):
-        # This method will be executed for every POST request received by the server on the
-        # "/" endpoint (see below 'add_resource')
 
-        # We assume that the body of the incoming request is formatted as JSON (i.e., its Content-Type is JSON)
-        # We parse the JSON content and we obtain a dictionary object
         request_data = request.get_json(force=True)
 
         # We wrap the resulting dictionary in a custom object that allows data access via dot-notation
         request_data = DictQuery(request_data)
 
-        # We extract several information from the state
+        # -------------------- TAKE NEEDED INFO FROM ALANA  ------------------------------ #
         user_utterance = request_data.get("current_state.state.nlu.annotations.processed_text")  #7
-        current_state = request_data.get("current_state.last_state.state.bot_states.state")
-        if current_state is None:
-            current_state = "introduction"
-        story_progression = request_data.get("current_state.last_state.state.bot_states.story_progression")
 
-        # -------------- NATURAL LANGUAGE UNDERSTANDING  ---------- #
-        nlu_result = get_intent(user_utterance)
-        intent = nlu_result["intent"]["name"]
-        # create FMS with current state
-        conversation_fms = ConversationFMS(current_state)
-        # update the current state with a transition
-        is_ended = False
-        set_new_state(conversation_fms, intent, is_ended)
+        # -------------------- INITIALISE STATE OBJECT IF NONE------------------------------ #
+        global state_object
+        if state_object is None:
+            # need to create the story graph
+            story_graph = get_story_graph()
+            visited_nodes = []
+            intent = ""
+            previous_intent = ""
+            state_object = State(story_graph, visited_nodes, user_utterance, intent, previous_intent)
+        else:
+            state_object.utterance = user_utterance
+            state_object.previous_intent = state_object.intent
+            state_object.intent = ""
+
+        # --------------------- NATURAL LANGUAGE UNDERSTANDING  --------------------- #
+        # We try to use regex and if else statement to catch the intent before using rasa
+        regex_intent_classifier(user_utterance, state_object)
+        if state_object.intent == "":
+            nlu_result = get_intent(user_utterance)
+            state_object.intent = nlu_result["intent"]["name"]
+
+        # initialise fsm
+        global story_fsm
+        if story_fsm is None:
+            story_fsm = ConversationFMS("introduction")
+
+        # set new state
+        state_object.set_new_state(story_fsm)
 
         # -------------------- DIALOGUE MANAGER ------------------ #
-        results = {
-            "intents": intent,
-            "state": conversation_fms.state
-        }
-        answer = dialogue_manager(results)
+        answer = dialogue_manager(state_object, story_fsm)
 
-        # ---------------- call the DM to decide what to do based on intent and state--------- #
 
         last_bot = request_data.get("current_state.state.last_bot")
 
@@ -89,18 +98,12 @@ class StorytellerBot(Bot):
         logger.info("Last bot: {}".format(last_bot))
         logger.info("---------------------------")
 
-        # --------------- NATURAL LANGUAGE GENERATOR ---------------#
+        # ---------------------------------------------------------- #
+
         self.response.result = answer
-
-        # ------------------------------------------------------------------------------ #
-
-        # we store in the dictionary 'bot_params' the current time. Remember that this information will be stored
-        # in the database only if the bot is selected
         self.response.bot_params["time"] = str(datetime.now())
+        self.response.bot_params["lock_requested"] = True
 
-        # ------------ Argomenti da agigungere, come ad esempio i vari stati della conversazione ----- #
-        self.response.bot_params["state"] = results["state"]
-        # self.response.bot_params["story_progression"] = results["pointer_story"]
         print(self.response.toJSON())
 
         # The response generated by the bot is always considered as a list (we allow a bot to generate multiple response
