@@ -20,7 +20,6 @@ def get_intent(interpreter, utterance):
     interpretation = interpreter.parse(utterance)
     return interpretation
 
-
 # if __name__ == "__main__":
 #     utterances = ["I guess this is it", "Yes", "Thank you very much", "so what happened?", "oh no, did he survive?",
 #                   "bye, see you next time", "and then?", "ok", "not really", "wow that's nice!!"]
