@@ -76,24 +76,24 @@ def answering(state_object):
                 "could" in state_object.utterance.lower() or "shall" in state_object.utterance.lower() \
                 or "should" in state_object.utterance.lower():
             if "i" in state_object.utterance.lower():
-                random.choice(templates["what_i_do"])
+                return random.choice(templates["what_i_do"])
             elif "you" in state_object.utterance.lower():
-                random.choice(templates["what_you_do"])
+                return random.choice(templates["what_you_do"])
             elif "we" in state_object.utterance.lower():
-                random.choice(templates["what_we_do"])
+                return random.choice(templates["what_we_do"])
             else:
-                random.choice(templates["what_ot_know"])
+                return random.choice(templates["what_ot_know"])
         elif "are" in state_object.utterance.lower():
             if "you" in state_object.utterance.lower():
-                random.choice(templates["what_are_you"])
+                return random.choice(templates["what_are_you"])
             else:
-                random.choice(templates["what_ot_know"])
+                return random.choice(templates["what_ot_know"])
         elif "story" in state_object.utterance.lower():
-            random.choice(templates["story"])
+            return random.choice(templates["story"])
         else:
-            random.choice(templates["what_ot_know"])
+            return random.choice(templates["what_ot_know"])
     else:
-        random.choice(templates["what_ot_know"])
+        return random.choice(templates["what_ot_know"])
 
 
 def answering_f(state_object):
@@ -103,21 +103,20 @@ def answering_f(state_object):
                 "could" in state_object.utterance.lower() or "shall" in state_object.utterance.lower() \
                 or "should" in state_object.utterance.lower():
             if "i" in state_object.utterance.lower():
-                random.choice(templates["what_i_do"])
+                return random.choice(templates["what_i_do"])
             elif "you" in state_object.utterance.lower():
                 if "think" in state_object.utterance.lower():
-                    random.choice(templates["think"])
+                    return random.choice(templates["think"])
         else:
-            random.choice(templates["what_ot_know"])
+            return random.choice(templates["what_ot_know"])
     else:
-        random.choice(templates["what_ot_know"])
+        return random.choice(templates["what_ot_know"])
 
 
-def ans_bidaf(state_object):
-    # TODO: modify to call BIDAF. for now it says it does not know.
+def ans_bert(state_object):
+    # TODO: modify to call BERT. for now it says it does not know.
     templates = _answering_f_templates
-    random.choice(templates["what_ot_know"])
-    pass
+    return random.choice(templates["what_ot_know"])
 
 
 def dialogue_manager(stateObject, stateMachine):
@@ -147,6 +146,5 @@ def dialogue_manager(stateObject, stateMachine):
     if "answering_f" in current_State:
         return answering_f(stateObject)
 
-    if "ans_bidaf" in current_State:
-        return ans_bidaf(stateObject)
-
+    if "bert" in current_State:
+        return ans_bert(stateObject)
