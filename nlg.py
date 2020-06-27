@@ -86,13 +86,13 @@ _answering_templates = {
         "I don't think I know the answer. Would you like to hear the story?"
     ],
     "what_are_you": [
-        "I am a storyteller bot."
+        "I am a storyteller bot.",
         "I am a storyteller."
     ],
     "story": [
-        "You'll see in a moment. Shall I start?"
+        "You'll see in a moment. Shall I start?",
         "You'll discover it soon. Shall I start?"
-    ],
+    ]
 }
 
 _answering_f_templates = {
@@ -109,22 +109,7 @@ _answering_f_templates = {
     ]
 }
 
-_ans_bidaf_templates = {}
-
-
-class NLG:
-
-    def fill_ans_bidaf(self,state_dic):
-        pass
-
-
-class StorytellerGenerator(NLG):
-    def __init__(self, args):
-        logger.info("Creating features from dataset file at ")
-
-    def fill_ans_bidaf(self, state_dic):
-        templates = _ans_bidaf_templates
-
+_ans_bert_templates = {}
 
 # if __name__ == "__main__":
 #     results = {
