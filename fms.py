@@ -4,7 +4,7 @@ from transitions import Machine
 class ConversationFMS(object):
 
     # define states
-    states = ['introduction', 'storytelling', 'closing', 'answering', 'link_to_survey', 'answering_f', 'ans_bidaf']
+    states = ['introduction', 'storytelling', 'closing', 'answering', 'link_to_survey', 'answering_f', 'bert']
 
     def __init__(self, state):
         self.machine = Machine(model=self, states=ConversationFMS.states, initial=state)
@@ -18,18 +18,17 @@ class ConversationFMS(object):
 
         # ---- Transition from storytelling --- #
         self.machine.add_transition('story_ends', 'storytelling', 'closing')
-        self.machine.add_transition('question', 'storytelling', 'bidaf_answering')
+        self.machine.add_transition('question', 'storytelling', 'bert')
         self.machine.add_transition('non_question', 'storytelling', 'storytelling')
 
         # ---- Transition from answering --- #
-        self.machine.add_transition('acceptance', 'answering', 'introduction')
+        self.machine.add_transition('acceptance', 'answering', 'storytelling')
         self.machine.add_transition('question', 'answering', 'answering')
-        self.machine.add_transition('ask_increment', 'answering', 'storytelling')
 
-        # ---- Transition from ans_bidaf --- #
-        self.machine.add_transition('acceptance', 'ans_bidaf', 'storytelling')
-        self.machine.add_transition('acceptance', 'ans_bidaf', 'closing')
-        self.machine.add_transition('question', 'ans_bidaf', 'ans_bidaf')
+        # ---- Transition from bert --- #
+        self.machine.add_transition('acceptance', 'bert', 'storytelling')
+        self.machine.add_transition('story_ends', 'bert', 'closing')
+        self.machine.add_transition('question', 'bert', 'bert')
 
         # ---- Transition from closing --- #
         self.machine.add_transition('acceptance', 'closing', 'link_to_survey')

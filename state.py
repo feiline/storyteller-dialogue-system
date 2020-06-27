@@ -2,8 +2,8 @@ class State:
     def __init__(self, story_graph, story_told, utterance, intent, previous_intent=None):
         self._story_graph = story_graph
         self._story_told = [story_told]
-        self._utterance = utterance
         self._intent = intent
+        self._utterance = utterance
         self._previous_intent = previous_intent
         self.is_story_ended = False
         self.nodes_to_visit = []
@@ -28,6 +28,10 @@ class State:
     @property
     def previous_intent(self):
         return self._previous_intent
+
+    @utterance.setter
+    def utterance(self, new_utterance):
+        self._utterance = new_utterance
 
     @intent.setter
     def intent(self, new_intent):
@@ -66,7 +70,7 @@ class State:
             if self.current_node == "sentence12":
                 fsm.story_ends()  # new state: closing
             elif self.intent == "ynq" or self.intent == "whq":
-                fsm.question()  # new state: bidaf_answering
+                fsm.question()  # new state: bert
             else:
                 fsm.non_question()  # new state: storytelling
 
@@ -77,16 +81,16 @@ class State:
                 fsm.acceptance()  # new state: link_to_survey
 
         elif state == "answering":
-            if self.intent == "ask_for_story" or self.intent == "request_increment":
-                fsm.ask_increment()  # new state: storytelling
-            elif self.intent == "ynq" or self.intent == "whq":
+            if self.intent == "ynq" or self.intent == "whq":
                 fsm.question()  # new state: answering
             else:
-                fsm.acceptance()  # new state: introduction
+                fsm.acceptance()  # new state: storytelling
 
-        elif state == "ans_bidaf":
+        elif state == "bert":
             if self.intent == "ynq" or self.intent == "whq":
-                fsm.question()  # new state: ans_bidaf
+                fsm.question()  # new state: bert
+            elif self.current_node == "sentence12":
+                fsm.story_ends()  # new state: closing
             else:
                 fsm.acceptance()  # new state: storytelling
 

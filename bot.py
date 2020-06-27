@@ -13,7 +13,7 @@ from utils.utils.dict_query import DictQuery
 
 from dm import dialogue_manager
 from fms import ConversationFMS
-from nlu import get_intent
+from nlu import get_intent, get_model
 from state import State
 from story import get_story_graph
 
@@ -36,6 +36,7 @@ parser.add_argument('-fv', '--file-verbosity', default='info', help='File loggin
 
 state_object = None
 story_fsm = None
+interpreter = get_model()
 
 
 class StorytellerBot(Bot):
@@ -56,7 +57,7 @@ class StorytellerBot(Bot):
         request_data = DictQuery(request_data)
 
         # -------------------- TAKE NEEDED INFO FROM ALANA  ------------------------------ #
-        user_utterance = request_data.get("current_state.state.nlu.annotations.processed_text")  #7
+        user_utterance = request_data.get("current_state.state.nlu.annotations.processed_text")
 
         # -------------------- INITIALISE STATE OBJECT IF NONE------------------------------ #
         global state_object
@@ -76,7 +77,7 @@ class StorytellerBot(Bot):
         # We try to use regex and if else statement to catch the intent before using rasa
         regex_intent_classifier(user_utterance, state_object)
         if state_object.intent == "":
-            nlu_result = get_intent(user_utterance)
+            nlu_result = get_intent(interpreter, user_utterance)
             state_object.intent = nlu_result["intent"]["name"]
 
         # initialise fsm
