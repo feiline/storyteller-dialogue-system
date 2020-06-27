@@ -148,4 +148,3 @@ def dialogue_manager(stateObject, stateMachine):
 
     if "bert" in current_State:
         return ans_bert(stateObject)
-

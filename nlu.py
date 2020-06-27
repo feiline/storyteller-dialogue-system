@@ -17,7 +17,6 @@ def get_intent(interpreter, utterance):
     :param utterance: String - user utterance
     :return: string - intent
     """
-
     interpretation = interpreter.parse(utterance)
     return interpretation
 
@@ -32,4 +31,3 @@ def get_intent(interpreter, utterance):
 #         print(intent)
 #         print(1 / (time.time() - start_time), "hz")
 #
-
