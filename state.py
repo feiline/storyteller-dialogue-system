@@ -1,10 +1,11 @@
 class State:
-    def __init__(self, story_graph, story_told, utterance, intent, previous_intent=None):
+    def __init__(self, story_graph, story_told, utterance, intent, bert_model, previous_intent=None):
         self._story_graph = story_graph
         self._story_told = [story_told]
         self._intent = intent
         self._utterance = utterance
         self._previous_intent = previous_intent
+        self._bert_model = bert_model
         self.is_story_ended = False
         self.nodes_to_visit = []
         self.current_node = "sentence1"
@@ -28,6 +29,10 @@ class State:
     @property
     def previous_intent(self):
         return self._previous_intent
+
+    @property
+    def bert_model(self):
+        return self._bert_model
 
     @utterance.setter
     def utterance(self, new_utterance):

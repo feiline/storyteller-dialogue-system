@@ -109,7 +109,23 @@ _answering_f_templates = {
     ]
 }
 
-_ans_bert_templates = {}
+_ans_bert_templates = {
+    "whq":  ["{text}"],
+    "ynq":  ["{text}"],
+    "greetings": ["{text}"],
+    "goodbye": ["{text}"],
+    "affirm": ["{text}"],
+    "deny": ["{text}"],
+    "exclaim_neg": ["{text}"],
+    "exclaim_pos": ["{text}"],
+    "thanks": ["{text}"],
+    "request_increment": ["{text}"],
+    "clarification_request": ["{text}"],
+    "ask_if_ended": ["{text}"],
+    "ask_for_story": ["{text}"],
+    "comment": ["{text}"],
+    "feedback_prompt": ["{text}"],
+}
 
 # if __name__ == "__main__":
 #     results = {

@@ -1,7 +1,8 @@
 import random
 
+from answer_with_bert import  get_bert_answer
 from nlg import _first_templates, _intro_templates, _goodbye_templates, _storytelling_templates, _closing_templates, \
-    _link_to_survey_templates, _answering_templates, _answering_f_templates
+    _link_to_survey_templates, _answering_templates, _answering_f_templates, _ans_bert_templates
 from story import depth_first_search
 
 
@@ -114,9 +115,14 @@ def answering_f(state_object):
 
 
 def ans_bert(state_object):
-    # TODO: modify to call BERT. for now it says it does not know.
-    templates = _answering_f_templates
-    return random.choice(templates["what_ot_know"])
+    text = get_bert_answer(state_object.bert_model, state_object.utterance)
+    if "[SEP]" in text:
+        text = "I am afraid I don't remember."
+    template_fillers = {'text': text}
+    templates = _ans_bert_templates
+    curr_templates = templates[state_object.intent]
+    template = random.choice(curr_templates)
+    return template.format(**template_fillers)
 
 
 def dialogue_manager(stateObject, stateMachine):

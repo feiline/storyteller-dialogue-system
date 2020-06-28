@@ -11,12 +11,17 @@ from utils.utils import log
 from utils.utils.abstract_classes import Bot
 from utils.utils.dict_query import DictQuery
 
+from answer_with_bert import get_bert_model
 from dm import dialogue_manager
 from fms import ConversationFMS
 from nlu import get_intent, get_model
 from state import State
 from story import get_story_graph
 
+import os
+
+# print("Path at terminal when executing this file")
+# print(os.getcwd() + "\n")
 
 app = Flask(__name__)
 
@@ -37,6 +42,7 @@ parser.add_argument('-fv', '--file-verbosity', default='info', help='File loggin
 state_object = None
 story_fsm = None
 interpreter = get_model()
+bert_model = get_bert_model()
 
 
 class StorytellerBot(Bot):
@@ -58,7 +64,7 @@ class StorytellerBot(Bot):
 
         # -------------------- TAKE NEEDED INFO FROM ALANA  ------------------------------ #
         user_utterance = request_data.get("current_state.state.nlu.annotations.processed_text")
-
+        print(user_utterance)
         # -------------------- INITIALISE STATE OBJECT IF NONE------------------------------ #
         global state_object
         if state_object is None:
@@ -67,7 +73,7 @@ class StorytellerBot(Bot):
             visited_nodes = []
             intent = ""
             previous_intent = ""
-            state_object = State(story_graph, visited_nodes, user_utterance, intent, previous_intent)
+            state_object = State(story_graph, visited_nodes, user_utterance, intent, bert_model, previous_intent)
         else:
             state_object.utterance = user_utterance
             state_object.previous_intent = state_object.intent
