@@ -17,7 +17,7 @@ def regex_intent_classifier(text, state_object):
 
     # check for whq
     question_words = ["WP", "WRB", "WDT", "WP$"]
-    verbs = ["VP", "VBZ", "VBP", "VBD", "VBG", "VBN"]
+    verbs = ["VP", "VBZ", "VBP", "VBD", "VBG", "VBN", "MD"]
 
     for q in question_words:
         if q in pos_tag:
@@ -26,7 +26,7 @@ def regex_intent_classifier(text, state_object):
         if v in pos_tag:
             pos_tag = pos_tag.replace(v, "VRP")
 
-    if re.search(r"\bWP VPP|WP PV\b", pos_tag):
+    if re.search(r"\bWP VPP|WP PV|WP VRP\b", pos_tag):
         state_object.intent = "whq"
     else:
         greetings = ["hello", "hi", "ehy", "hey", "ciao", "hola", "what’s up", "good morning", "good afternoon",
