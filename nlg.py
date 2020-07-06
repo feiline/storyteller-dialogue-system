@@ -58,7 +58,7 @@ class NLG:
         self._link_to_survey_templates = {
             "link": [
                 "Here you can find the link to a quick survey: https://forms.gle/tiBgZrWYJArCiZ7CA",
-                "Please find the link to a quick survey here: https://forms.gle/tiBgZrWYJArCiZ7CA",
+                "Please find attached the link to a quick survey here: https://forms.gle/tiBgZrWYJArCiZ7CA",
                 "Thanks for listening. Here you can find the link to a quick survey: https://forms.gle/tiBgZrWYJArCiZ7CA"
             ],
             "thanks": [
@@ -72,7 +72,7 @@ class NLG:
         self._answering_templates = {
             "what_i_do": [
                 "I am not sure. I just know I have this story to tell you.",
-                "I an not sure, sorry. But I know this story, would you like to hear it?",
+                "I am not sure, sorry. But I know this story, would you like to hear it?",
             ],
             "what_you_do": [
                 "I'm here to tell you a brief story. Ready to hear it?",

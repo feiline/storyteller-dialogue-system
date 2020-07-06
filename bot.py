@@ -52,7 +52,7 @@ def telegram_webhook():
             bot.sendMessage(chat_id, "This session is now expired. Thanks for your collaboration.")
         else:
             bot.sendChatAction(chat_id, action="typing")
-            print(chat_id)
+            print("chat_id:", chat_id)
             if "text" in update["message"]:
                 text = update["message"]["text"]
                 print("received", text)
@@ -101,9 +101,8 @@ def telegram_webhook():
                     logger.info("Bot answer: {}".format(answer))
                     logger.info("---------------------------")
                     # ---------------------------------------------------------- #
-                    response = answer
                     time.sleep(2)
-                    bot.sendMessage(chat_id, response)
+                    bot.sendMessage(chat_id, answer)
     return 'ok'
 
 

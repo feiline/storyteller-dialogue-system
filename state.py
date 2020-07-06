@@ -72,7 +72,7 @@ class State:
                     fsm.no_change()  # new state: introduction
 
         elif state == "storytelling":
-            if self.current_node == "sentence12":
+            if self.current_node == "sentence10":
                 fsm.story_ends()  # new state: closing
             elif self.intent == "ynq" or self.intent == "whq":
                 fsm.question()  # new state: bert
