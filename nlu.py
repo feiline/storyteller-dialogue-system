@@ -1,8 +1,4 @@
-import random
-import time
-
 from rasa.nlu.model import Interpreter
-
 
 def get_model():
     model = "rasa_nlu/models/nlu"
@@ -30,4 +26,3 @@ def get_intent(interpreter, utterance):
 #         intent = nluResult["intent"]["name"]
 #         print(intent)
 #         print(1 / (time.time() - start_time), "hz")
-#
