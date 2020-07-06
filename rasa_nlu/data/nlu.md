@@ -16,10 +16,8 @@
 ## intent:goodbye
 - bye
 - goodbye
-- see you around
 - see you later
 - take care
-- see ya
 - see you
 - ok bye
 - bye bye
@@ -30,26 +28,21 @@
 - yep
 - indeed
 - of course
-- that sounds good
 - correct
 - sure
 - right
 - yes it is
 - yes indeed
 - i thinks so
-- I'm sure they did!
 - I agree
 - agree
-- very true
 - this is true
 - That makes sense to me
 - ah ok
-- Very true!
 - yes I did
 - oh right
 - ah okay
 - Yea
-- 
 
 ## intent:deny
 - no
@@ -67,6 +60,7 @@
 - don't like that
 - no way
 - no way, really?
+- no way!
 - eww
 - ew
 - disgusting
@@ -154,45 +148,71 @@
 - Thanks
 
 ## intent:ynq
-- have you seen the [squirrel](animal)?
-- have you?
+- have you seen the squirrel?
+- have you done it?
+- Is she here for a visit? 
+- Did they find any? 
+- Did you buy anything good? 
+- Did they try to sell the bird?
+- so its about animals drinking from someones house?
+- do the other animals react this way? 
 - did you do it?
-- did you?
+- did you have fun?
 - did she?
-- did the [squirrel](animal) survived?
+- did the squirrel survived?
 - does she?
-- does the [squirrel](animal) have a name?
+- does the squirrel have a name?
 - does it?
 - are you happy about it?
-- was [benjamin](animal) watching?
-- was the [squirrel](animal) afraid of its reflection?
-- Was the [dog](animal) in the garden?
-- Was the [bowl](object) in the garden?
+- was benjamin watching?
+- was the squirrel afraid of its reflection?
+- Was the dog in the garden?
+- Was the bowl in the garden?
 - was she there?
+- were you happy about it?
+- were you aware of what was happening?
+- were you scared as well?
 - could you do it?
+- can you explain this to me?
+- was the squirrel hurt?
+- was he hurt?
 - is this possible?
-
-##lookup:object
-data/object.txt
+- Is Anne your sister? 
 
 ## intent:whq
 - why?
-- why the [bowl](object) was a popular site?
+- why the bowl was a popular site?
 - who?
-- whose [bowl](object) is it?
-- who is [benjamin](animal)? 
+- whose bowl is it?
+- who is benjamin? 
 - how?
 - when?
-- when have you seen the [squirrel](animal)?
-- when did you see the [squirrel](animal)?
+- when have you seen the squirrel?
+- when did you see the squirrel?
 - what?
-- what sort of animal is  [benjamin](animal)? 
-- what animal is [benjamin](animal)?
+- what sort of animal is benjamin? 
+- what animal is benjamin?
 - what part of the country? north? south?
 - Terrified of what ?
+- How did they lose their chance to be rich just because the bird was gold?
+- How many days did they get a golden egg?
+- Where did the bird place the golden eggs?
+- Why did they need more than what the golden eggs were worth?
+- What does the mouse do
+- What happens
+- why not
+- why this?
+- why that happened?
+- What happened to the pictures the people took at the fish auction?
+- How can it cut your life
+- Why is it sad
+- Why do you think he dont love you?
+- When did you see your dad
+- What time did the auction start?
+- How was that one?
+- Where did you go?
+- What did you see while doing it?
 
-##lookup:object
-data/object.txt
 
 ## intent:request_increment
 - and?
@@ -238,8 +258,6 @@ data/object.txt
 - I don't understand can you explain?
 - So was he hurt?
 
-## lookup:animal.txt
-data/animal.txt
 
 ## intent:ask_if_ended
 - are you done?
@@ -247,34 +265,31 @@ data/animal.txt
 - is it finished?
 - finished?
 - the end?
-- is the [story](object) finished?
-- is this the end of the [story](object)?
+- is the story finished?
+- is this the end of the story?
 
 ## intent:ask_for_story
-- do you have another [story](object)?
+- do you have another story?
 - another one?
-- another [story](object)?
+- another story?
 - do you have any other one?
-- What's your [story](object)?
+- What's your story?
 - you are a good storyteller have you any others?
-- are you going to tell me the [story](object)?
-- Tell me a [story](object), please
-- tell me your [story](object)
-- hello tell me your [story](object)
+- are you going to tell me the story?
+- Tell me a story, please
+- tell me your story
+- hello tell me your story
 - Have you got any more stories to tell me?
 - You got any other stories? 
-- so whats your [story](object)?
+- so whats your story?
 - do you have any others?
 - Can you think of another? 
-- hi please tell me your [story](object)
-- tell me another [story](object)
-- do you have one more [story](object) before i go?
-- Tell me your [story](object) :)
-- What's your last [tale](object)? 
-- Is there another [story](object)? 
-
-##lookup:object
-data/object.txt
+- hi please tell me your story
+- tell me another story
+- do you have one more story before i go?
+- Tell me your story :)
+- What's your last story? 
+- Is there another story? 
 
 ## intent:comment
 - oh yeah I see what you mean, not big deal actually
@@ -318,7 +333,7 @@ data/object.txt
 - Well you are a good storyteller.
 - Oh well, I'm sure you have other great stuff to see yet.
 - i hope he is oo
-- typical [squirrel](animal)
+- typical squirrel
 - i thought that would happen.
 - that's probably safer.
 - i would be scared
@@ -327,13 +342,10 @@ data/object.txt
 - I love animals.
 - I know I would have loved to have seen that!
 - That was my exact same thought
-
-## lookup:animal
-data/animal.txt
-
-## intent:feedback_prompt
-- are you there?
-- anyone?
-
-
+- I have a dog too
+- I don't like dogs, I prefer cats
+- Cats are better than dogs
+- Birds are really cute
+- I like birds
+- Maybe birds are not the only animals 
 
