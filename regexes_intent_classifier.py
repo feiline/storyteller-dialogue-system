@@ -29,14 +29,14 @@ def regex_intent_classifier(text, state_object):
     if re.search(r"\bWP VPP|WP PV|WP VRP\b", pos_tag):
         state_object.intent = "whq"
     else:
-        greetings = ["hello", "hi", "ehy", "hey", "ciao", "hola", "what’s up", "good morning", "good afternoon",
+        greet = ["hello", "hi", "ehy", "hey", "ciao", "hola", "what’s up", "good morning", "good afternoon",
                      "good evening", "yo", "howdy", "sup", "hiya"]
         goodbye = ["bye", "goodbye", "see you later", "take care", "see ya"]
         thanks = ["thanks", "thank you", "thnks"]
         yes = ["yes", "yep", "yeah", "yea", "right"]
-        for g in greetings:
+        for g in greet:
             if g in text.lower():
-                state_object.intent = "greetings"
+                state_object.intent = "greet"
         if state_object.intent == "":
             for t in thanks:
                 if t in text.lower():

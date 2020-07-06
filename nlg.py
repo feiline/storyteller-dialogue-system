@@ -20,7 +20,7 @@ _goodbye_templates = {
 }
 
 _intro_templates = {
-    "greetings": [
+    "greet": [
         "Hello again! Ready for the story?",
         "Hello hello, shall I begin?",
         "Well hello again, would you like to hear the story?",
@@ -37,10 +37,12 @@ _intro_templates = {
 }
 
 _storytelling_templates = {
-    "greetings": ["{text}"],
+    "greet": ["{text}"],
     "goodbye": ["{text}"],
     "affirm": ["{text}"],
     "deny": ["{text}"],
+    "whq": ["{text}"],
+    "ynq": ["{text}"],
     "exclaim_neg": ["{text}"],
     "exclaim_pos": ["{text}"],
     "thanks": ["{text}"],
@@ -54,17 +56,24 @@ _storytelling_templates = {
 
 _closing_templates = {
     "intro": [
-        "The end.",
+        "The end! Hope you enjoyed the story",
         "That's it, hope you enjoyed.",
-        "Story ended."
+        "And this is my story, I hope you enjoyed."
         ]
 }
 
 _link_to_survey_templates = {
     "link": [
-        "Here you can find the link to a quick survey: *link*",
-        "Please find the link to a quick survey here: *link*",
-        "Thanks for listening. Here you can find the link to a quick survey: *link*"
+        "Here you can find the link to a quick survey: https://forms.gle/tiBgZrWYJArCiZ7CA",
+        "Please find the link to a quick survey here: https://forms.gle/tiBgZrWYJArCiZ7CA",
+        "Thanks for listening. Here you can find the link to a quick survey: https://forms.gle/tiBgZrWYJArCiZ7CA"
+    ],
+    "thanks": [
+        "You're welcome. Please fill the survey: https://forms.gle/tiBgZrWYJArCiZ7CA"
+    ],
+    "smile": [
+        ":)",
+        "(:"
     ]
 }
 
@@ -82,7 +91,7 @@ _answering_templates = {
         "Just talk. I have this story to tell."
     ],
     "what_ot_know": [
-        "Sorry, I didn't catch that. Would you like to hear the story?",
+        "Sorry, I can't answer that. Would you like to hear the story?",
         "I don't think I know the answer. Would you like to hear the story?"
     ],
     "what_are_you": [
@@ -112,7 +121,7 @@ _answering_f_templates = {
 _ans_bert_templates = {
     "whq":  ["{text}"],
     "ynq":  ["{text}"],
-    "greetings": ["{text}"],
+    "greet": ["{text}"],
     "goodbye": ["{text}"],
     "affirm": ["{text}"],
     "deny": ["{text}"],
