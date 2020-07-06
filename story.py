@@ -49,7 +49,7 @@ def get_story_graph():
                   '8': "He was startled so much at one point that he leap in the air and fell off the deck. But not "
                        "quite, I saw his one little paw hanging on!",
                   '9': "After a moment or two his paw slipped and he tumbled down a few feet.",
-                  '12': "But oh, if you could have seen the look on his startled face and how he jumped back each time "
+                  '10': "But oh, if you could have seen the look on his startled face and how he jumped back each time "
                        "he caught his reflection in the bowl!"}
 
     sentence1 = StorySentenceNode("sentence1", DICT_STORY['1'], [])
@@ -61,27 +61,13 @@ def get_story_graph():
     sentence7 = StorySentenceNode("sentence7", DICT_STORY['7'], [sentence3])
     sentence8 = StorySentenceNode("sentence8", DICT_STORY['8'], [sentence7])
     sentence9 = StorySentenceNode("sentence9", DICT_STORY['9'], [sentence8])
-    sentence12 = StorySentenceNode("sentence12", DICT_STORY['12'], [sentence9])
+    sentence10 = StorySentenceNode("sentence10", DICT_STORY['10'], [sentence9])
 
     sentence_graph = [sentence1, sentence2, sentence3, sentence4, sentence5, sentence6, sentence7, sentence8, sentence9,
-                      sentence12]
+                      sentence10]
 
     story_graph = create_graph(sentence_graph)
     return story_graph
-
-
-def get_extended_story():
-    extended_story = "I wish I had a digital camera because something really funny happened and I wanted to capture it " \
-                     "on camera. We keep a large stainless bowl of water outside the house for Benjamin, our dog, to " \
-                     "drink off. His bowl has become a very popular site, there are often other animals to drink there" \
-                     "despite being the dog bowl. Throughout the day, many birds drink out of it and bathe in it. " \
-                     "The birds literally line up on the railing and wait their turn. Squirrels also go to drink there." \
-                     " A squirrel that acted in very crazy way just came by. He was literally jumping in fright at " \
-                     "his own reflection in the bowl, or at least I think so. He was startled so much at one" \
-                     " point that he leap in the air and fell off the deck, but no worries, the squirrel didn't hurt" \
-                     " himself. I saw his one little paw hanging on! After a moment or two his paw slipped and he " \
-                     "tumbled down a few feet. It was really fun, you should have seen the look on his startled face" \
-                     " and how he jumped back each time he caught his reflection in the bowl!"
 
 
 def depth_first_search(visited, graph, node_name, node_to_visit, is_ended):
@@ -93,10 +79,10 @@ def depth_first_search(visited, graph, node_name, node_to_visit, is_ended):
     :return: next increment based on what has been already told to the user
     """
     nodes = ['sentence1', 'sentence2', 'sentence3', 'sentence4', 'sentence5', 'sentence6', 'sentence7', 'sentence8',
-             'sentence9', 'sentence12']
+             'sentence9', 'sentence10']
 
     # if the node contains the last increment of the story
-    if node_name == "sentence12":
+    if node_name == "sentence10":
         is_ended = True
         return node_name, graph.nodes[node_name]["node_object"].sentence
 
