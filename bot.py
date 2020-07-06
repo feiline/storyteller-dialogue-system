@@ -1,37 +1,31 @@
 from argparse import ArgumentParser
-from datetime import datetime
 import logging
+import telepot
+import time
 import os
 
 from flask import Flask, request
-from flask_restful import Api
-
 from regexes_intent_classifier import regex_intent_classifier
-from utils.utils import log
-from utils.utils.abstract_classes import Bot
-from utils.utils.dict_query import DictQuery
 
 from answer_with_bert import get_bert_model
-from dm import dialogue_manager
+from dm_baseline import dialogue_manager
 from fms import ConversationFMS
+from logger_setup import set_logger
 from nlu import get_intent, get_model
 from state import State
 from story import get_story_graph
+from telegram_bot.credentials import BOT_TOKEN
 
-import os
 
-# print("Path at terminal when executing this file")
-# print(os.getcwd() + "\n")
+bot = telepot.Bot(BOT_TOKEN)
+bot.setWebhook("https://1cab4515fc9c.ngrok.io/chat")
 
 app = Flask(__name__)
 
-api = Api(app)
 BOT_NAME = "storyteller"
-VERSION = log.get_short_git_version()
-BRANCH = log.get_git_branch()
 
-# logging.basicConfig(filename="loggerConversation")
 logger = logging.getLogger(__name__)
+set_logger("INFO", "./logs/storyteller-baseline.log")
 
 parser = ArgumentParser()
 parser.add_argument('-p', "--port", type=int, default=5130)
@@ -41,95 +35,82 @@ parser.add_argument('-fv', '--file-verbosity', default='info', help='File loggin
 
 state_object = None
 story_fsm = None
+chat_ids = [1334492905, 1030004241]
 interpreter = get_model()
 bert_model = get_bert_model()
 
 
-class StorytellerBot(Bot):
-    def __init__(self, **kwargs):
-        # Warning: the init method will be called every time before the post() method
-        # Don't use it to initialise or load files.
-        # We will use kwargs to specify already initialised objects that are required to the bot
-        super(StorytellerBot, self).__init__(bot_name=BOT_NAME)
-
-    def get(self):
-        pass
-
-    def post(self):
-
-        request_data = request.get_json(force=True)
-
-        # We wrap the resulting dictionary in a custom object that allows data access via dot-notation
-        request_data = DictQuery(request_data)
-
-        # -------------------- TAKE NEEDED INFO FROM ALANA  ------------------------------ #
-        user_utterance = request_data.get("current_state.state.nlu.annotations.processed_text")
-        print(user_utterance)
-        # -------------------- INITIALISE STATE OBJECT IF NONE------------------------------ #
-        global state_object
-        if state_object is None:
-            # need to create the story graph
-            story_graph = get_story_graph()
-            visited_nodes = []
-            intent = ""
-            previous_intent = ""
-            state_object = State(story_graph, visited_nodes, user_utterance, intent, bert_model, previous_intent)
+@app.route('/chat', methods=["POST"])
+def telegram_webhook():
+    # retrieve the message in JSON and then transform it to Telegram object
+    global state_object
+    global story_fsm
+    update = request.get_json()
+    if "message" in update:
+        chat_id = update["message"]["chat"]["id"]
+        if chat_id in chat_ids:
+            bot.sendMessage(chat_id, "This session is now expired. Thanks for your collaboration.")
         else:
-            state_object.utterance = user_utterance
-            state_object.previous_intent = state_object.intent
-            state_object.intent = ""
+            bot.sendChatAction(chat_id, action="typing")
+            print(chat_id)
+            if "text" in update["message"]:
+                text = update["message"]["text"]
+                print("received", text)
+                if text == '/start':
+                    # print the welcoming message
+                    user_utterance = text
+                    story_graph = get_story_graph()
+                    visited_nodes = []
+                    intent = ""
+                    previous_intent = ""
+                    state_object = State(story_graph, visited_nodes, user_utterance, intent, bert_model, previous_intent)
+                    bot.sendMessage(chat_id, "Starting storyteller bot... Done.")
+                    story_fsm = ConversationFMS("introduction")
+                else:
+                    user_utterance = text
+                    if state_object is None:
+                        # need to create the story graph
+                        story_graph = get_story_graph()
+                        visited_nodes = []
+                        intent = ""
+                        previous_intent = ""
+                        state_object = State(story_graph, visited_nodes, user_utterance, intent, bert_model, previous_intent)
+                    else:
+                        state_object.utterance = user_utterance
+                        state_object.previous_intent = state_object.intent
+                        state_object.intent = ""
 
-        # --------------------- NATURAL LANGUAGE UNDERSTANDING  --------------------- #
-        # We try to use regex and if else statement to catch the intent before using rasa
-        regex_intent_classifier(user_utterance, state_object)
-        if state_object.intent == "":
-            nlu_result = get_intent(interpreter, user_utterance)
-            state_object.intent = nlu_result["intent"]["name"]
+                    # --------------------- NATURAL LANGUAGE UNDERSTANDING  --------------------- #
+                    # We try to use regex and if else statement to catch the intent before using rasa
+                    regex_intent_classifier(user_utterance, state_object)
+                    if state_object.intent == "":
+                        nlu_result = get_intent(interpreter, user_utterance)
+                        state_object.intent = nlu_result["intent"]["name"]
+                    # initialise fsm
+                    if story_fsm is None:
+                        story_fsm = ConversationFMS("introduction")
+                    # set new state
+                    state_object.set_new_state(story_fsm)
+                    # -------------------- DIALOGUE MANAGER ------------------ #
+                    answer = dialogue_manager(state_object, story_fsm)
 
-        # initialise fsm
-        global story_fsm
-        if story_fsm is None:
-            story_fsm = ConversationFMS("introduction")
+                    logger.info("------- Turn info ----------")
+                    logger.info("User utterance: {}".format(user_utterance))
+                    logger.info("User intent: {}".format(state_object.intent))
+                    logger.info("Bot state: {}".format(story_fsm.state))
+                    logger.info("Bot answer: {}".format(answer))
+                    logger.info("---------------------------")
+                    # ---------------------------------------------------------- #
+                    response = answer
+                    time.sleep(2)
+                    bot.sendMessage(chat_id, response)
+    return 'ok'
 
-        # set new state
-        state_object.set_new_state(story_fsm)
-
-        # -------------------- DIALOGUE MANAGER ------------------ #
-        answer = dialogue_manager(state_object, story_fsm)
-
-
-        last_bot = request_data.get("current_state.state.last_bot")
-
-        logger.info("------- Turn info ----------")
-        logger.info("User utterance: {}".format(user_utterance))
-        logger.info("Last bot: {}".format(last_bot))
-        logger.info("---------------------------")
-
-        # ---------------------------------------------------------- #
-
-        self.response.result = answer
-        self.response.bot_params["time"] = str(datetime.now())
-        self.response.bot_params["lock_requested"] = True
-
-        print(self.response.toJSON())
-
-        # The response generated by the bot is always considered as a list (we allow a bot to generate multiple response
-        # objects for the same turn). Here we create a singleton list with the response in JSON format
-        return [self.response.toJSON()]
-
-
-# ----------------- probably need to change this part to connect it with telegram ----------------------
 
 if __name__ == "__main__":
-
     args = parser.parse_args()
 
     if not os.path.exists("logs/"):
         os.makedirs("logs/")
-
-    log.set_logger_params(BOT_NAME + '-' + BRANCH, logfile=args.logfile,
-                          file_level=args.file_verbosity, console_level=args.console_verbosity)
-
-    api.add_resource(StorytellerBot, "/")
 
     app.run(host="0.0.0.0", port=args.port)
