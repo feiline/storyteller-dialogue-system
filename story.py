@@ -44,11 +44,11 @@ def get_story_graph():
                   '4': "Throughout the day, many birds drink out of it and bathe in it.",
                   '5': "The birds literally line up on the railing and wait their turn.",
                   '6': "Squirrels also come to drink out of it.",
-                  '7': "The craziest squirrel just came by-",
-                  '8': "he was literally jumping in fright at what I believe was his own reflection in the bowl",
-                  '9': "He was startled so much at one point that he leap in the air and fell off the deck.",
-                  '10': "But not quite, I saw his one little paw hanging on!",
-                  '11': "After a moment or two his paw slipped and he tumbled down a few feet.",
+                  '7': "The craziest squirrel just came by- he was literally jumping in fright at what I believe was "
+                       "his own reflection in the bowl",
+                  '8': "He was startled so much at one point that he leap in the air and fell off the deck. But not "
+                       "quite, I saw his one little paw hanging on!",
+                  '9': "After a moment or two his paw slipped and he tumbled down a few feet.",
                   '12': "But oh, if you could have seen the look on his startled face and how he jumped back each time "
                        "he caught his reflection in the bowl!"}
 
@@ -61,12 +61,10 @@ def get_story_graph():
     sentence7 = StorySentenceNode("sentence7", DICT_STORY['7'], [sentence3])
     sentence8 = StorySentenceNode("sentence8", DICT_STORY['8'], [sentence7])
     sentence9 = StorySentenceNode("sentence9", DICT_STORY['9'], [sentence8])
-    sentence10 = StorySentenceNode("sentence10", DICT_STORY['10'], [sentence9])
-    sentence11 = StorySentenceNode("sentence11", DICT_STORY['11'], [sentence10])
-    sentence12 = StorySentenceNode("sentence12", DICT_STORY['12'], [sentence11])
+    sentence12 = StorySentenceNode("sentence12", DICT_STORY['12'], [sentence9])
 
     sentence_graph = [sentence1, sentence2, sentence3, sentence4, sentence5, sentence6, sentence7, sentence8, sentence9,
-                      sentence10, sentence11, sentence12]
+                      sentence12]
 
     story_graph = create_graph(sentence_graph)
     return story_graph
@@ -95,7 +93,7 @@ def depth_first_search(visited, graph, node_name, node_to_visit, is_ended):
     :return: next increment based on what has been already told to the user
     """
     nodes = ['sentence1', 'sentence2', 'sentence3', 'sentence4', 'sentence5', 'sentence6', 'sentence7', 'sentence8',
-             'sentence9', 'sentence10', 'sentence11', 'sentence12']
+             'sentence9', 'sentence12']
 
     # if the node contains the last increment of the story
     if node_name == "sentence12":
@@ -144,12 +142,12 @@ def depth_first_search(visited, graph, node_name, node_to_visit, is_ended):
 #         node_name, answer = depth_first_search(visited_nodes, story_graph, first_node, nodes_to_visit, is_ended=False)
 #         first_node = node_name
 #         print(answer)
-
-#     pos = graphviz_layout(graph, prog='dot')
-#     labels = {v.name: v.name for v in sentence_graph}
-#     nx.draw(graph, with_labels=True, pos=pos, labels=labels)
-#     plt.show()
-
+#
+#     # pos = graphviz_layout(graph, prog='dot')
+#     # labels = {v.name: v.name for v in sentence_graph}
+#     # nx.draw(graph, with_labels=True, pos=pos, labels=labels)
+#     # plt.show()
+#
 #
 # if __name__ == "__main__":
 #     main()
