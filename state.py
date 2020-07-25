@@ -1,5 +1,5 @@
 class State:
-    def __init__(self, story_graph, story_told, utterance, intent, bert_model, previous_intent=None):
+    def __init__(self, story_graph, story_told, utterance, intent, bert_model, previous_intent):
         self._story_graph = story_graph
         self._story_told = [story_told]
         self._intent = intent
@@ -54,8 +54,6 @@ class State:
         Given the current state and the intent, the aim is to throw an action to change
         the current state. It returns the new state in which the bot is in.
         :param fsm: object from class ConversationFMS
-        :param intent: String - current user intent
-        :param is_ended: boolean - is the story finished?
         :return: void - set new current fsm state
         """
         state = fsm.state
@@ -94,7 +92,7 @@ class State:
         elif state == "bert":
             if self.intent == "ynq" or self.intent == "whq":
                 fsm.question()  # new state: bert
-            elif self.current_node == "sentence12":
+            elif self.current_node == "sentence10":
                 fsm.story_ends()  # new state: closing
             else:
                 fsm.acceptance()  # new state: storytelling
