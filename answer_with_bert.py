@@ -8,15 +8,15 @@ def get_bert_model():
 
 
 def get_bert_answer(model, question):
-    text = "This is one of those times I wish I had a digital camera. We keep a large stainless bowl of water outside " \
-           "the house for Benjamin to drink off. His bowl has become a very popular site because there are often other " \
-           "animals to drink there despite being the dog bowl. Throughout the day, many birds drink out of it and bathe" \
-           " in it. The birds literally line up on the railing and wait their turn. Squirrels also go to drink there." \
+    text = "This is one of those times I wish I had a digital camera. We keep a large stainless bowl of water outside" \
+           " the house for Benjamin to drink off. His bowl has become a very popular site. " \
+           "Throughout the day, many birds drink out of it and bathe in it." \
+           " The birds literally line up on the railing and wait their turn. Squirrels also go to drink there." \
            " A squirrel that acted in a very crazy way just came by. He was literally jumping in fright at " \
            "what I believe was his own reflection in the bowl. He was startled so much at one" \
-           " point that he leap in the air and fell off the deck, but no worries, the squirrel did not hurt" \
-           " himself. I saw his one little paw hanging on! After a moment or two his paw slipped and he " \
-           "tumbled down a few feet. It was really fun, you should have seen the look on his startled face" \
+           " point that he leaps in the air and fell off the deck. " \
+           " I saw his one little paw hanging on! After a moment or two his paw slipped and he " \
+           "tumbled down a few feet. But oh, you should have seen the look on his startled face" \
            " and how he jumped back each time he caught his reflection in the bowl!"
 
     tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')

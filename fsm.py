@@ -4,10 +4,10 @@ from transitions import Machine
 class ConversationFMS(object):
 
     # define states
-    states = ['introduction', 'storytelling', 'closing', 'answering', 'link_to_survey', 'answering_f', 'bert']
+    STATES = ['introduction', 'storytelling', 'closing', 'answering', 'link_to_survey', 'answering_f', 'bert']
 
     def __init__(self, state):
-        self.machine = Machine(model=self, states=ConversationFMS.states, initial=state)
+        self.machine = Machine(model=self, states=ConversationFMS.STATES, initial=state)
 
         # ----------- TRANSITIONS ------------ #
 

@@ -1,5 +1,6 @@
 from rasa.nlu.model import Interpreter
 
+
 def get_model():
     model = "rasa_nlu/models/nlu"
 
@@ -10,6 +11,7 @@ def get_model():
 def get_intent(interpreter, utterance):
     """
     retrieves intent from user utterance
+    :param interpreter: rasa model
     :param utterance: String - user utterance
     :return: string - intent
     """

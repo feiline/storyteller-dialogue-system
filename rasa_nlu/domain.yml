@@ -3,9 +3,15 @@ intents:
   - goodbye
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - exclaim_pos
+  - exclaim_neg
+  - comment
+  - ynq
+  - whq
+  - request_increment
+  - clarification_request
+  - ask_if_ended
+  - ask_for_story
 
 responses:
   utter_greet:

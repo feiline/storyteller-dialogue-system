@@ -83,9 +83,7 @@ def depth_first_search(visited, graph, node_name, node_to_visit, is_ended):
 
     # if the node contains the last increment of the story
     if node_name == "sentence10":
-        is_ended = True
         return node_name, graph.nodes[node_name]["node_object"].sentence
-
     else:
         if node_name not in visited:
             visited.append(node_name)

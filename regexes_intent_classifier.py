@@ -4,10 +4,8 @@ import re
 
 
 def regex_intent_classifier(text, state_object):
-    # check fot the ynq
-    text = word_tokenize(text)
-    pos_tags = nltk.pos_tag(text)
-    text = ' '.join(text)
+    tokenized_text = word_tokenize(text)
+    pos_tags = nltk.pos_tag(tokenized_text)
     just_postags = []
     for i in range(len(pos_tags)):
         if pos_tags[i][1] is not ',':
@@ -28,27 +26,28 @@ def regex_intent_classifier(text, state_object):
 
     if re.search(r"\bWP VPP|WP PV|WP VRP\b", pos_tag):
         state_object.intent = "whq"
-    else:
-        greet = ["hello", "hi", "ehy", "hey", "ciao", "hola", "what’s up", "good morning", "good afternoon",
-                     "good evening", "yo", "howdy", "sup", "hiya"]
-        goodbye = ["bye", "goodbye", "see you later", "take care", "see ya"]
-        thanks = ["thanks", "thank you", "thnks"]
-        yes = ["yes", "yep", "yeah", "yea", "right"]
-        for g in greet:
-            if g in text.lower():
-                state_object.intent = "greet"
-        if state_object.intent == "":
-            for t in thanks:
-                if t in text.lower():
-                    state_object.intent = "thanks"
-        if state_object.intent == "":
-            for y in yes:
-                if y in text.lower():
-                    state_object.intent = "affirm"
-        if state_object.intent == "":
-            for gb in goodbye:
-                if gb in text.lower():
-                    state_object.intent = "goodbye"
+    # else:
+    #     text = ' '.join(tokenized_text)
+    #     greet = ["hello", "hi", "ehy", "hey", "ciao", "hola", "what’s up", "good morning", "good afternoon",
+    #                  "good evening", "yo", "howdy", "sup", "hiya"]
+    #     goodbye = ["bye", "goodbye", "see you later", "take care", "see ya"]
+    #     thanks = ["thanks", "thank you", "thnks"]
+    #     yes = ["yes", "yep", "yeah", "yea", "right"]
+    #     for g in greet:
+    #         if g in text.lower():
+    #             state_object.intent = "greet"
+    #     if state_object.intent == "":
+    #         for t in thanks:
+    #             if t in text.lower():
+    #                 state_object.intent = "thanks"
+    #     if state_object.intent == "":
+    #         for y in yes:
+    #             if y in text.lower():
+    #                 state_object.intent = "affirm"
+    #     if state_object.intent == "":
+    #         for gb in goodbye:
+    #             if gb in text.lower():
+    #                 state_object.intent = "goodbye"
 
 
 # if __name__ == '__main__':
