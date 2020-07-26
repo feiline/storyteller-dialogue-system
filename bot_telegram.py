@@ -9,16 +9,18 @@ from regexes_intent_classifier import regex_intent_classifier
 
 from answer_with_bert import get_bert_model
 from dm_baseline import dialogue_manager
-from fms import ConversationFMS
+from dm_engagement_strategy import dialogue_manager_s1
+from fsm import ConversationFMS
 from logger_setup import set_logger
 from nlu import get_intent, get_model
+from sentiment_analysis import get_classifier
 from state import State
 from story import get_story_graph
 from telegram_bot.credentials import BOT_TOKEN
 
 
 bot = telepot.Bot(BOT_TOKEN)
-bot.setWebhook("https://1cab4515fc9c.ngrok.io/chat")
+bot.setWebhook("https://**********.ngrok.io/chat")
 
 app = Flask(__name__)
 
@@ -35,9 +37,12 @@ parser.add_argument('-fv', '--file-verbosity', default='info', help='File loggin
 
 state_object = None
 story_fsm = None
-chat_ids = [1334492905, 1030004241]
+# chat_ids = telegram IDs of participants of the evaluation. Saved them to block them from interacting again with
+# the system. The real IDs are now changed with numbers from 1 to 30 to maintain the anonymity of the participants.
+chat_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
 interpreter = get_model()
 bert_model = get_bert_model()
+classifier = get_classifier()
 
 
 @app.route('/chat', methods=["POST"])
@@ -93,6 +98,7 @@ def telegram_webhook():
                     state_object.set_new_state(story_fsm)
                     # -------------------- DIALOGUE MANAGER ------------------ #
                     answer = dialogue_manager(state_object, story_fsm)
+                    #answer = dialogue_manager_s1(state_object, story_fsm, classifier)
 
                     logger.info("------- Turn info ----------")
                     logger.info("User utterance: {}".format(user_utterance))

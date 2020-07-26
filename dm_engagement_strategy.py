@@ -235,7 +235,7 @@ def ans_bert(state_object, nlg_object):
 
 def dialogue_manager_s1(stateObject, stateMachine, classifier):
     """
-    Method called by the bot.py to retrieve the information to pass to the NLG
+    Method called by the bot_telegram.py to retrieve the information to pass to the NLG
     :param stateObject: state object, in which are stores: intent, previous intent, story graph, nodes visited
     :param stateMachine: finate state machine, in which is stored the current state
     :return: string - text
