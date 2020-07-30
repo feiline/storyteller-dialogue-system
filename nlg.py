@@ -64,7 +64,7 @@ class NLG:
                 "{acknowledge} {text}",
                 "{acknowledge} {text}"
             ],
-            "sentence8pos": ["{acknowledge} {text}"],
+            "sentence8pos": ["{acknowledge} {text} He was for sure unlucky"],
             "sentence8neg": ["{acknowledge} {text}"],
             "sentence9": ["{acknowledge} {text}"],
             "sentence10": ["{acknowledge} {text}"]
@@ -173,66 +173,109 @@ class NLG:
         self._ans_bert_s1_templates = {
             "whq": [
                 "{text}. Makes sense?",
+                "{text}. Did I answer you?",
+                "{text}. Was this the answer you were looking for?",
+                "{text}. You asked me this, right?",
                 "{text}"
             ],
             "ynq": [
                 "{text}. Makes sense?",
+                "{text}. Did I answer you?",
+                "{text}. Was this the answer you were looking for?",
+                "{text}. You asked me this, right?",
                 "{text}"
             ],
             "greet": [
                 "{text}. Makes sense?",
+                "{text}. Did I answer you?",
+                "{text}. Was this the answer you were looking for?",
+                "{text}. You asked me this, right?",
                 "{text}"
 
             ],
             "goodbye": [
                 "{text}. Makes sense?",
+                "{text}. Did I answer you?",
+                "{text}. Was this the answer you were looking for?",
+                "{text}. You asked me this, right?",
                 "{text}"
             ],
             "affirm": [
                 "{text}. Makes sense?",
+                "{text}. Did I answer you?",
+                "{text}. Was this the answer you were looking for?",
+                "{text}. You asked me this, right?",
                 "{text}"
             ],
             "deny": [
                 "{text}. Makes sense?",
+                "{text}. Did I answer you?",
+                "{text}. Was this the answer you were looking for?",
+                "{text}. You asked me this, right?",
                 "{text}"
 
             ],
             "exclaim_neg": [
                 "{text}. Makes sense?",
+                "{text}. Did I answer you?",
+                "{text}. Was this the answer you were looking for?",
+                "{text}. You asked me this, right?",
                 "{text}"
             ],
             "exclaim_pos": [
                 "{text}. Makes sense?",
                 "{text}. Did I answer you?",
                 "{text}. Was this the answer you were looking for?",
-                "{text}. You asked me this, right?"
+                "{text}. You asked me this, right?",
+                "{text}"
             ],
             "thanks": [
                 "{text}. Makes sense?",
+                "{text}. Did I answer you?",
+                "{text}. Was this the answer you were looking for?",
+                "{text}. You asked me this, right?",
                 "{text}"
             ],
             "request_increment": [
-                    "{text}. Makes sense?",
-                    "{text}"
+                "{text}. Makes sense?",
+                "{text}. Did I answer you?",
+                "{text}. Was this the answer you were looking for?",
+                "{text}. You asked me this, right?",
+                "{text}"
             ],
             "clarification_request": [
                 "{text}. Makes sense?",
+                "{text}. Did I answer you?",
+                "{text}. Was this the answer you were looking for?",
+                "{text}. You asked me this, right?",
                 "{text}"
             ],
             "ask_if_ended": [
                 "{text}. Makes sense?",
+                "{text}. Did I answer you?",
+                "{text}. Was this the answer you were looking for?",
+                "{text}. You asked me this, right?",
                 "{text}"
             ],
             "ask_for_story": [
                 "{text}. Makes sense?",
+                "{text}. Did I answer you?",
+                "{text}. Was this the answer you were looking for?",
+                "{text}. You asked me this, right?",
                 "{text}"
             ],
             "comment": [
                 "{text}. Makes sense?",
+                "{text}. Did I answer you?",
+                "{text}. Was this the answer you were looking for?",
+                "{text}. You asked me this, right?",
                 "{text}"
             ],
             "feedback_prompt": [
                 "{text}. Makes sense?",
+                "{text}. Did I answer you?",
+                "{text}. Was this the answer you were looking for?",
+                "{text}. You asked me this, right?",
                 "{text}"
             ],
         }

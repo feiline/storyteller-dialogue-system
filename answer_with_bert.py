@@ -24,8 +24,8 @@ def get_bert_answer(model, question):
     input_ids, token_type_ids = encoding["input_ids"], encoding["token_type_ids"]
     start_scores, end_scores = model(tf.constant(input_ids)[None, :],
                                      token_type_ids=tf.constant(token_type_ids)[None, :])
-    all_tokens = tokenizer.convert_ids_to_tokens(input_ids)
-    answer = ' '.join(all_tokens[tf.math.argmax(tf.squeeze(start_scores)): tf.math.argmax(tf.squeeze(end_scores)) + 1])
+    tokens = tokenizer.convert_ids_to_tokens(input_ids)
+    answer = ' '.join(tokens[tf.math.argmax(tf.squeeze(start_scores)): tf.math.argmax(tf.squeeze(end_scores)) + 1])
     return answer
 
 
