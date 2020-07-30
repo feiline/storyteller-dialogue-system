@@ -30,4 +30,3 @@ The system is developed and tested using Python 3.7. Some of the libraries requi
 - Select which engagement strategy to use: currently the system uses the baseline strategy. To use the Feedback Prompt strategy please comment `line 102` of `bot_telegram.py` and uncomment `line 103` of `bot_telegram.py`
 #### Run the application
 - Run `bot_telegram.py` to run the system using the Telegram web interface
-- Run `bot_alana.py` to run the system using the Alana interface (to use the Alana interface please make sure you already have access to Alana and that is installed in you machine)
