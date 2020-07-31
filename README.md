@@ -1,29 +1,8 @@
 # Storyteller Dialogue System
 
-Conversational AI: MSc project to design and build a conversational story-teller dialogue system.
+Conversational AI: MSc project to design, develop and evaluate a conversational story-teller dialogue system.
 
-## Abstract 
-<dl>
-  <i> Storytelling is the interactive communication between a storyteller and one or more
-active listeners. It provides an interactive way to share experiences with others, for
-instance to tell our friends about our weekend or a movie plot. For children, storytelling
-has also an educational impact, as it increases exposure to both social interaction and
-conversation development. Still, systems that are specialised in storytelling are not
-common.
-For this MSc project, I developed and evaluated a storyteller system that tells a story
-interactively. On top of the system, an engagement strategy called Feedback Prompt is
-developed, evaluated and compared with a baseline strategy. The evaluation focuses on
-how the strategies affect the engagement in active listeners. The evaluation is carried
-out through a Telegram bot used as a web interface to allow users to interact with
-it. During the evaluation, the user connects to the Telegram interface and starts an
-interaction with the system. The user receives the story increment by increment and
-their behaviour contributes to how the story unfolds. To handle user questions, the
-system includes Machine Reading Comprehension capabilities. The hypothesis is that
-the Feedback Prompt strategy positively affects the engagement of the listener increasing
-the interaction.<i>
-  </d1>
-
----
+***
 
 ## Libraries
 The system is developed and tested using Python 3.7. Some of the libraries required are:
