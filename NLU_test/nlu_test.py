@@ -1,10 +1,11 @@
 import random
 import time
+from pathlib import Path
 
 from rasa.nlu.model import Interpreter
 
 def get_model():
-    model = "/home/sabrina/PycharmProjects/storyteller_DS/rasa_folder/models/nlu"
+    model = Path(__file__).absolute().parent.joinpath("../rasa_nlu/models/nlu")
 
     interpreter = Interpreter.load(model)
     return interpreter

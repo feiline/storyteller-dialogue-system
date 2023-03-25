@@ -1,1 +1,5 @@
 /telegram_bot/
+/rasa_nlu/
+__pycache__
+.vscode/
+logs/
